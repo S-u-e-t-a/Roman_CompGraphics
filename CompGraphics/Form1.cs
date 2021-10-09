@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -51,13 +52,95 @@ namespace CompGraphics
             /* 1. Ввод значений исходных данных */
             var n = 14;
 
-            int[] xn = {40, 0, 20, 40, 0, 20, 25, 22, 22, 25, 18, 18, 15, 15};
-            int[] yn = {10, 10, 40, 10, 10, 40, 22, 22, 25, 28, 28, 22, 22, 28};
-            int[] zn = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-            int[] xk = {0, 20, 40, 20, 20, 20, 22, 22, 25, 22, 18, 15, 15, 18};
-            int[] yk = {10, 40, 10, 20, 20, 20, 22, 25, 28, 28, 22, 22, 28, 28};
-            int[] zk = {0, 0, 0, 40, 40, 40, 0, 0, 0, 0, 0, 0, 0, 0};
 
+            var lines = new List<List<int>>
+            {
+                new List<int> {419, 384, 325, 384},
+                new List<int> {207, 384, 112, 384},
+                new List<int> {526, 596, 526, 148},
+                new List<int> {6, 596, 207, 596},
+                new List<int> {6, 148, 6, 596},
+                new List<int> {112, 148, 112, 384},
+                new List<int> {112, 148, 6, 148},
+                new List<int> {419, 384, 419, 148},
+                new List<int> {526, 148, 419, 148},
+                new List<int> {325, 596, 526, 596},
+                new List<int> {325, 6, 325, 596},
+                new List<int> {207, 6, 207, 596},
+                new List<int> {325, 6, 207, 6},
+                new List<int> {325, 596, 207, 596},
+                new List<int> {716, 596, 1306, 596},
+                new List<int> {869, 148, 1153, 148},
+                new List<int> {716, 596, 869, 148},
+                new List<int> {1153, 148, 1306, 596},
+                new List<int> {1306, 6, 716, 6},
+                new List<int> {1306, 6, 1306, 596},
+                new List<int> {716, 6, 716, 596},
+                new List<int> {6, 1139, 6, 1423},
+                new List<int> {526, 1423, 526, 1139},
+                new List<int> {419, 1423, 419, 1139},
+                new List<int> {112, 1139, 112, 1423},
+                new List<int> {419, 1504, 325, 1504},
+                new List<int> {207, 1504, 112, 1504},
+                new List<int> {325, 1059, 419, 1059},
+                new List<int> {6, 1139, 112, 1139},
+                new List<int> {526, 1576, 526, 1423},
+                new List<int> {6, 1576, 207, 1576},
+                new List<int> {419, 1139, 526, 1139},
+                new List<int> {6, 986, 6, 1139},
+                new List<int> {207, 986, 6, 986},
+                new List<int> {112, 1059, 207, 1059},
+                new List<int> {6, 1423, 6, 1576},
+                new List<int> {526, 1139, 526, 986},
+                new List<int> {112, 1423, 112, 1504},
+                new List<int> {112, 1423, 6, 1423},
+                new List<int> {419, 1504, 419, 1423},
+                new List<int> {526, 1423, 419, 1423},
+                new List<int> {112, 1059, 112, 1139},
+                new List<int> {526, 986, 325, 986},
+                new List<int> {419, 1139, 419, 1059},
+                new List<int> {325, 1576, 526, 1576},
+                new List<int> {207, 986, 325, 986},
+                new List<int> {207, 1576, 207, 986},
+                new List<int> {325, 1576, 207, 1576},
+                new List<int> {325, 986, 325, 1576},
+                new List<int> {1072, 1683, 1490, 1442},
+                new List<int> {1014, 926, 814, 1042},
+                new List<int> {1181, 1254, 1381, 1138},
+                new List<int> {1106, 1210, 1306, 1095},
+                new List<int> {847, 1302, 832, 1311},
+                new List<int> {1049, 1436, 982, 1398},
+                new List<int> {847, 1320, 832, 1311},
+                new List<int> {1014, 926, 1056, 950},
+                new List<int> {1072, 1683, 1181, 1254},
+                new List<int> {705, 1471, 847, 1553},
+                new List<int> {1306, 1095, 1381, 1138},
+                new List<int> {814, 1042, 705, 1471},
+                new List<int> {1381, 1138, 1490, 1442},
+                new List<int> {847, 1250, 832, 1311},
+                new List<int> {855, 1066, 814, 1042},
+                new List<int> {1049, 1436, 1106, 1210},
+                new List<int> {1181, 1254, 1106, 1210},
+                new List<int> {930, 1601, 1072, 1683},
+                new List<int> {982, 1398, 1072, 1346},
+                new List<int> {1264, 830, 1348, 878},
+                new List<int> {847, 1071, 1264, 830},
+                new List<int> {982, 1398, 930, 1601},
+                new List<int> {930, 1119, 930, 1601},
+                new List<int> {847, 1071, 847, 1553},
+                new List<int> {930, 1119, 847, 1071},
+                new List<int> {1348, 878, 930, 1119},
+                new List<int> {1348, 878, 1348, 1119},
+                new List<int> {930, 1601, 847, 1553}
+            };
+            var scale = 0.3;
+            foreach (var line in lines)
+            {
+                for (var j = 0; j < line.Count; j++)
+                {
+                    line[j] = (int) (scale * line[j]);
+                }
+            }
             /* 2. Инициализация графики */
 
             var canvas = Graphics.FromHwnd(Handle);
@@ -70,132 +153,12 @@ namespace CompGraphics
                 SolidBrush(Color.FromArgb(150, 0, 0, 255));
             var f = new Font("Arial", 15);
             var f2 = new Font("Arial", 8);
-            /* вычерчивание рамки формата А4*/
-            canvas.DrawRectangle(pen2, 2, 2, 210, 297);
-            canvas.DrawRectangle(pen2, 20, 5, 185, 287);
-            line(pen2, 20, 297 - 55, 205, 297 - 55);
-
-            /* Оси координат и их обозначение */
-            line(pen2, x0 - 70, y0, x0 + 70, y0);
-            line(pen2, x0, y0 - 70, x0, y0 + 70);
-            canvas.DrawString("X", new
-                Font("Areal", 15), b, x0 - 70, y0 + 10);
-            canvas.DrawString("Y", f, b, x0 + 70, y0 + 10);
-            canvas.DrawString("Z", f, b, x0 + 10, y0 - 70);
-            canvas.DrawString("Y", f, b, x0 + 10, y0 + 70);
-            canvas.DrawString(" Ортогональные проекции", f2, b, 25, 270);
 
             /* Основные циклы вычислений проекции XOY*/
-            for (i = 0; i < n; i++)
+            foreach (var line in lines)
             {
-                //DrawLine(pen,int,int,int,int)
-                canvas.DrawLine(pen, x0 - xn[i], y0 + yn[i], x0 -
-                                                             xk[i], y0 + yk[i]);
+                canvas.DrawLine(pen, line[0], line[1], line[2], line[3]);
             }
-
-            ;
-            /* Основные циклы вычислений проекции XOZ*/
-            for (i = 0; i < n; i++)
-            {
-                //My function line(pen,int,int,int,int)
-
-
-                line(pen, x0 - xn[i], y0 - zn[i], x0 - xk[i], y0 - zk[i]
-                );
-            }
-
-            ;
-            /* Основные циклы вычислений проекции ZOY*/
-            var k = 1.0f; // масштаб
-            for (i = 0; i < n; i++)
-            {
-                //DrawLine(pen,float,float,float,float)
-                canvas.DrawLine(pen, 1.0f * (x0 + (k * yn[i])), y0 -
-                                                                (k * zn[i]), x0 + (k * yk[i]), y0 - (k * zk[i]));
-            }
-
-            ;
-
-            // Аксонометрическая проекция
-            /* Установка параметров */
-            int dx = 300, dy = 0;
-            int sx0, sy0;
-            double kx, ky, kz;
-            double ax, ay, az, sxn, syn, sxk, syk;
-            double sin30, cos30;
-
-            sx0 = 110 + dx;
-            sy0 = y0 + dy;
-            kx = 0.82;
-            ky = 0.82;
-            kz = 0.82;
-            sin30 = Math.Sin((30.0 / 180.0) * 3.1415);
-            cos30 = Math.Cos((30.0 / 180.0) * 3.1415);
-
-            /* вычерчивание рамки формата А4*/
-            canvas.DrawRectangle(pen2, 0 + dx, 2, 210, 297);
-            canvas.DrawRectangle(pen2, 20 + dx, 5, 185, 287);
-            line(pen2, 20 + dx, 297 - 55, 205 + dx, 297 - 55);
-
-            /* оси координат и их обозначение */
-            ax = 50;
-            ay = 0;
-            az = 0;
-            sxk = (sx0 - (ax * kx * cos30)) +
-                  (ay * ky * cos30);
-
-            syk = sy0 - ((az * kz) - (ax * kx * sin30) - (ay * ky * sin30));
-            line(pen2, sx0, sy0, (int) sxk, (int) syk);
-
-
-            canvas.DrawString("X", f, b, (float) sxk -
-                                         20, (float) syk);
-
-            // Canvas->TextOutA( "X");
-            ax = 0;
-            ay = 50;
-            az = 0;
-            sxk = (sx0 - (ax * kx * cos30)) +
-                  (ay * ky * cos30);
-
-            syk = sy0 - ((az * kz) - (ax * kx * sin30) - (ay * ky * sin30));
-            line(pen2, sx0, sy0, (int) sxk, (int) syk);
-            canvas.DrawString("Y", f, b, (float) sxk + 10, (float) syk);
-
-            // Canvas->TextOutA(sxk+10,syk,"Y");
-            ax = 0;
-            ay = 0;
-            az = 50;
-            sxk = (sx0 - (ax * kx * cos30)) +
-                  (ay * ky * cos30);
-
-            syk = sy0 - ((az * kz) - (ax * kx * sin30) - (ay * ky * sin30));
-            line(pen2, sx0, sy0, (int) sxk, (int) syk);
-
-            canvas.DrawString("Z", f, b, (float) sxk, (float) syk -
-                                                      10);
-
-            // Canvas->TextOutA(sxk,syk-10,"Z");
-
-            canvas.DrawString("Аксонометрическая проекция", f2, b, 25 + dx, 270);
-            /* 3. Организация основных циклов вычислений
-    линии ребер каркасной модели */
-            for (i = 0; i < n; i++)
-            {
-                ax = 1.3 * xn[i];
-                ay = yn[i];
-                az = zn[i];
-                sxn = (sx0 - (ax * kx * cos30)) + (ay * ky * cos30);
-                syn = sy0 - ((az * kz) - (ax * kx * sin30) - (ay * ky * sin30));
-                ax = xk[i] * 1.3;
-                ay = yk[i];
-                az = zk[i];
-                sxk = (sx0 - (ax * kx * cos30)) + (ay * ky * cos30);
-                syk = sy0 - ((az * kz) - (ax * kx * sin30) - (ay * ky * sin30));
-                line(pen, (int) sxn, (int) syn, (int) sxk, (int) syk);
-            }
-
-            ; /*next i*/
 
 
 /* 4. Закрытие графического режима*/
@@ -220,7 +183,7 @@ namespace CompGraphics
 
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
 
-            var r = new Rectangle(0, 0, 200, 300);
+            var r = new Rectangle(0, 0, 500, 1000);
             r = Screen.PrimaryScreen.Bounds;
 
             var w = r.Width;
@@ -230,18 +193,5 @@ namespace CompGraphics
             Left = (w - tw) / 2;
             Top = (h - th) / 2;
         }
-
-
-        /// </summary>
-
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-
-        #endregion
     }
 }
