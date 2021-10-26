@@ -38,7 +38,7 @@ namespace CompGraphics
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(38, 616);
+            this.button1.Location = new System.Drawing.Point(12, 494);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 23);
             this.button1.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace CompGraphics
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(227, 621);
+            this.label1.Location = new System.Drawing.Point(161, 494);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(272, 16);
             this.label1.TabIndex = 1;
@@ -56,15 +56,13 @@ namespace CompGraphics
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(1057, 665);
+            this.ClientSize = new System.Drawing.Size(682, 529);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "g1511XXs1_Фамилия Самостоятельная работа No1 12.12.2006";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

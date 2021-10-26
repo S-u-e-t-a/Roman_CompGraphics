@@ -13,185 +13,98 @@ namespace CompGraphics
 
         public Form1()
         {
-            //
-            // Required for Windows Form Designer support
-            //
             InitializeComponent();
         }
 
-
-        /// <summary>
-        ///     Clean up any resources being used.
-        private void line(Pen pen, int x1, int y1, int x2, int y2)
+        private void button1_Click(object sender, EventArgs e)
         {
-            var canvas = Graphics.FromHwnd(Handle);
-            canvas.DrawLine(pen, x1, y1, x2, y2);
-        }
-
-
-        /// <summary>
-        ///     The main entry point for the application.
-        /// </summary>
-        private void button1_Click(object sender,
-            EventArgs e)
-
-        {
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            BackColor = Color.FromArgb(1, 0, 0, 10);
-            // this.Invalidate();
-
-            ////////////// this.MaximizeBox = false;
-            ///////////// this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-
-            /* Установка параметров */
-            int x0, y0, i;
-            x0 = 110;
-            y0 = 110;
-
-            /* 1. Ввод значений исходных данных */
-            var n = 14;
-
-
+            //сюда свои значения
             var lines = new List<List<int>>
             {
-                new List<int> {419, 384, 325, 384},
-                new List<int> {207, 384, 112, 384},
-                new List<int> {526, 596, 526, 148},
-                new List<int> {6, 596, 207, 596},
-                new List<int> {6, 148, 6, 596},
-                new List<int> {112, 148, 112, 384},
-                new List<int> {112, 148, 6, 148},
-                new List<int> {419, 384, 419, 148},
-                new List<int> {526, 148, 419, 148},
-                new List<int> {325, 596, 526, 596},
-                new List<int> {325, 6, 325, 596},
-                new List<int> {207, 6, 207, 596},
-                new List<int> {325, 6, 207, 6},
-                new List<int> {325, 596, 207, 596},
-                new List<int> {716, 596, 1306, 596},
-                new List<int> {869, 148, 1153, 148},
-                new List<int> {716, 596, 869, 148},
-                new List<int> {1153, 148, 1306, 596},
-                new List<int> {1306, 6, 716, 6},
-                new List<int> {1306, 6, 1306, 596},
-                new List<int> {716, 6, 716, 596},
-                new List<int> {6, 1139, 6, 1423},
-                new List<int> {526, 1423, 526, 1139},
-                new List<int> {419, 1423, 419, 1139},
-                new List<int> {112, 1139, 112, 1423},
-                new List<int> {419, 1504, 325, 1504},
-                new List<int> {207, 1504, 112, 1504},
-                new List<int> {325, 1059, 419, 1059},
-                new List<int> {6, 1139, 112, 1139},
-                new List<int> {526, 1576, 526, 1423},
-                new List<int> {6, 1576, 207, 1576},
-                new List<int> {419, 1139, 526, 1139},
-                new List<int> {6, 986, 6, 1139},
-                new List<int> {207, 986, 6, 986},
-                new List<int> {112, 1059, 207, 1059},
-                new List<int> {6, 1423, 6, 1576},
-                new List<int> {526, 1139, 526, 986},
-                new List<int> {112, 1423, 112, 1504},
-                new List<int> {112, 1423, 6, 1423},
-                new List<int> {419, 1504, 419, 1423},
-                new List<int> {526, 1423, 419, 1423},
-                new List<int> {112, 1059, 112, 1139},
-                new List<int> {526, 986, 325, 986},
-                new List<int> {419, 1139, 419, 1059},
-                new List<int> {325, 1576, 526, 1576},
-                new List<int> {207, 986, 325, 986},
-                new List<int> {207, 1576, 207, 986},
-                new List<int> {325, 1576, 207, 1576},
-                new List<int> {325, 986, 325, 1576},
-                new List<int> {1072, 1683, 1490, 1442},
-                new List<int> {1014, 926, 814, 1042},
-                new List<int> {1181, 1254, 1381, 1138},
-                new List<int> {1106, 1210, 1306, 1095},
-                new List<int> {847, 1302, 832, 1311},
-                new List<int> {1049, 1436, 982, 1398},
-                new List<int> {847, 1320, 832, 1311},
-                new List<int> {1014, 926, 1056, 950},
-                new List<int> {1072, 1683, 1181, 1254},
-                new List<int> {705, 1471, 847, 1553},
-                new List<int> {1306, 1095, 1381, 1138},
-                new List<int> {814, 1042, 705, 1471},
-                new List<int> {1381, 1138, 1490, 1442},
-                new List<int> {847, 1250, 832, 1311},
-                new List<int> {855, 1066, 814, 1042},
-                new List<int> {1049, 1436, 1106, 1210},
-                new List<int> {1181, 1254, 1106, 1210},
-                new List<int> {930, 1601, 1072, 1683},
-                new List<int> {982, 1398, 1072, 1346},
-                new List<int> {1264, 830, 1348, 878},
-                new List<int> {847, 1071, 1264, 830},
-                new List<int> {982, 1398, 930, 1601},
-                new List<int> {930, 1119, 930, 1601},
-                new List<int> {847, 1071, 847, 1553},
-                new List<int> {930, 1119, 847, 1071},
-                new List<int> {1348, 878, 930, 1119},
-                new List<int> {1348, 878, 1348, 1119},
-                new List<int> {930, 1601, 847, 1553}
+               new List<int>{424, 467, 341, 6, },
+new List<int>{128, 6, 50, 467, },
+new List<int>{341, 6, 128, 6, },
+new List<int>{424, 467, 463, 680, },
+new List<int>{357, 680, 357, 562, },
+new List<int>{120, 680, 14, 680, },
+new List<int>{120, 562, 120, 680, },
+new List<int>{424, 467, 50, 467, },
+new List<int>{14, 680, 50, 467, },
+new List<int>{357, 562, 120, 562, },
+new List<int>{463, 680, 357, 680, },
+new List<int>{14, 850, 14, 968, },
+new List<int>{424, 1204, 341, 1204, },
+new List<int>{463, 850, 403, 850, },
+new List<int>{128, 1086, 128, 1204, },
+new List<int>{128, 1204, 50, 1204, },
+new List<int>{341, 1086, 341, 1204, },
+new List<int>{70, 850, 14, 850, },
+new List<int>{341, 1204, 128, 1204, },
+new List<int>{463, 850, 463, 968, },
+new List<int>{424, 968, 463, 968, },
+new List<int>{424, 968, 424, 1204, },
+new List<int>{50, 1204, 50, 968, },
+new List<int>{14, 968, 50, 968, },
+new List<int>{128, 1086, 70, 1086, },
+new List<int>{403, 1086, 341, 1086, },
+new List<int>{341, 1086, 128, 1086, },
+new List<int>{70, 850, 70, 1086, },
+new List<int>{70, 850, 403, 850, },
+new List<int>{403, 1086, 403, 850, },
+new List<int>{191, 1086, 191, 944, },
+new List<int>{191, 944, 286, 944, },
+new List<int>{286, 944, 286, 1086, },
+new List<int>{704, 680, 823, 680, },
+new List<int>{941, 6, 1059, 6, },
+new List<int>{1059, 6, 1059, 467, },
+new List<int>{704, 349, 704, 680, },
+new List<int>{1059, 467, 823, 467, },
+new List<int>{823, 680, 823, 467, },
+new List<int>{941, 6, 941, 349, },
+new List<int>{704, 349, 941, 349, },
+new List<int>{941, 89, 799, 349, },
+new List<int>{947, 1454, 888, 1043, },
+new List<int>{1225, 1498, 1182, 1204, },
+new List<int>{821, 908, 737, 956, },
+new List<int>{737, 956, 682, 1301, },
+new List<int>{971, 995, 888, 1043, },
+new List<int>{888, 1043, 737, 956, },
+new List<int>{1225, 1498, 1141, 1547, },
+new List<int>{1114, 1357, 1141, 1547, },
+new List<int>{1114, 1357, 947, 1454, },
+new List<int>{1066, 1503, 1066, 1407, },
+new List<int>{947, 1454, 682, 1301, },
+new List<int>{1066, 1407, 1047, 1396, },
+new List<int>{1141, 1547, 1066, 1503, },
+new List<int>{1015, 1300, 971, 995, },
+new List<int>{971, 995, 821, 908, },
+new List<int>{1002, 1212, 1033, 1195, },
+new List<int>{985, 1090, 1182, 1204, },
+new List<int>{1015, 1300, 1182, 1204, },
+new List<int>{1033, 1195, 991, 1130, },
+
             };
             var scale = 0.3;
             foreach (var line in lines)
             {
                 for (var j = 0; j < line.Count; j++)
                 {
-                    line[j] = (int) (scale * line[j]);
+                    line[j] = (int)(scale * line[j]);
                 }
             }
             /* 2. Инициализация графики */
 
             var canvas = Graphics.FromHwnd(Handle);
 
-            float w = 1.0f, w0 = 2.0f;
+            float w0 = 2.0f;
             var pen = new Pen(Color.Red, w0);
-            var pen2 = new Pen(Color.Green, w);
-
-            var b = new
-                SolidBrush(Color.FromArgb(150, 0, 0, 255));
-            var f = new Font("Arial", 15);
-            var f2 = new Font("Arial", 8);
 
             /* Основные циклы вычислений проекции XOY*/
             foreach (var line in lines)
             {
                 canvas.DrawLine(pen, line[0], line[1], line[2], line[3]);
             }
-
-
-/* 4. Закрытие графического режима*/
         }
 
-
-        private void Form1_Activated(object sender,
-            EventArgs e)
-
-        {
-            button1_Click(null, null);
-        }
-
-
-        private void Form1_Load(object sender,
-            EventArgs e)
-
-        {
-            StartPosition = FormStartPosition.CenterScreen;
-
-            label1.Text = "";
-
-            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-
-            var r = new Rectangle(0, 0, 500, 1000);
-            r = Screen.PrimaryScreen.Bounds;
-
-            var w = r.Width;
-            var h = r.Height;
-            var tw = Width;
-            var th = Height;
-            Left = (w - tw) / 2;
-            Top = (h - th) / 2;
-        }
     }
 }
